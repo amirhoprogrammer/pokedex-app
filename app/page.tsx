@@ -1,7 +1,6 @@
 import PokemonList from "@/components/pokemon-list";
-import { Pokemon } from "@/utils/types";
-import Image from "next/image";
-
+import SearchInput from "@/components/search-input";
+import PokemonWrapper from "@/components/pokemon-wrapper";
 async function getData() {
   const url = "https://pokeapi.co/api/v2/pokemon?limit=20";
   try {
@@ -43,11 +42,8 @@ export default async function Home() {
         <h1 className="text-4xl md:text-6xl font-bold text-center text-white mb-8">
           Pokedex
         </h1>
-        <input
-          type="text"
-          placeholder="Search Pokemen..."
-          className="block w-full pl-10 pr-3 py-2 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-red-500  focus:border-red-500 sm:text-sm"
-        />
+        <PokemonWrapper pokemons={pokemons} />
+        {/* <SearchInput /> */}
         <PokemonList pokemons={pokemons} />
       </div>
     </div>
