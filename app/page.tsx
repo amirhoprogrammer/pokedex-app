@@ -4,7 +4,7 @@ import PokemonWrapper from "@/components/pokemon-wrapper";
 async function getData() {
   const url = "https://pokeapi.co/api/v2/pokemon?limit=20";
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, { cache: "force-cache" });
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
